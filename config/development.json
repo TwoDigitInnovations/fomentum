@@ -1,7 +1,7 @@
 {
     "database": {
      
-        "url": "mongodb+srv://fomentum:{password}@cluster0.nipxkzu.mongodb.net/?retryWrites=true&w=majority"
+        "url": "mongodb+srv://kaklotarchetan7528:kpEt9dpN1T03bhrQ@cluster0.nipxkzu.mongodb.net/?retryWrites=true&w=majority"
     },
     "jwt": {
         "secretOrKey": "PROD_SECRET",
