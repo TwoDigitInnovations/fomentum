@@ -1,6 +1,6 @@
 {
     "database": {            
-        "url": "mongodb+srv://ljw:{password}@cluster0.lfqoseq.mongodb.net/test?retryWrites=true&w=majority"
+        "url": "mongodb+srv://fomentum:fom12345678@cluster0.lfqoseq.mongodb.net/test?retryWrites=true&w=majority"
     },
     "jwt": {
         "secretOrKey": "PROD_SECRET",

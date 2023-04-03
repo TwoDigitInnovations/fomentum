@@ -2,6 +2,7 @@
 const router = require("express").Router();
 const user = require("../../app/controller/user");
 const job = require("../../app/controller/job");
+const event = require("../../app/controller/event");
 const { upload } = require("./../../app/services/fileUpload");
 const isAuthenticated = require("./../../middlewares/isAuthenticated");
 const clientController = require("../../app/controller/clientController");
@@ -238,5 +239,18 @@ router.post("/adduser", wwmUserController.user);
 router.post("/updateuser", wwmUserController.update);
 router.post("/sendOtp", wwmUserController.sendOTP);
 router.post("/verifyOTP", wwmUserController.verifyOTP);
+
+//Events Route
+router.post("/createevent", event.create);
+router.post("/getevents", event.getevents);
+router.post("/editEvent", event.updateEvent);
+router.post("/deleteEvent", event.deleteEvent);
+router.post("/addInterest", isAuthenticated, event.addInterest);
+router.post("/addGoing", isAuthenticated, event.addGoing);
+router.get("/listInterest/:event", isAuthenticated, event.listInterest);
+router.get("/listGoing/:event", isAuthenticated, event.listGoing);
+
+router.post("/listMyEvents", isAuthenticated, event.listMyEvents);
+router.post("/listGoMyEvents", isAuthenticated, event.listGoMyEvents);
 
 module.exports = router;
