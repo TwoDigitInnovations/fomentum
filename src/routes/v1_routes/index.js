@@ -9,6 +9,8 @@ const clientController = require("../../app/controller/clientController");
 const jobsController = require("../../app/controller/jobsControllers");
 const workersController = require("../../app/controller/workersController");
 const wwmUserController = require("../../app/controller/wwmUserController");
+const notification = require('../../app/controller/notification');
+const benefits = require('../../app/controller/benefits');
 
 // auth routes
 router.post("/login", user.login);
@@ -249,8 +251,18 @@ router.post("/addInterest", isAuthenticated, event.addInterest);
 router.post("/addGoing", isAuthenticated, event.addGoing);
 router.get("/listInterest/:event", isAuthenticated, event.listInterest);
 router.get("/listGoing/:event", isAuthenticated, event.listGoing);
-
 router.post("/listMyEvents", isAuthenticated, event.listMyEvents);
 router.post("/listGoMyEvents", isAuthenticated, event.listGoMyEvents);
+
+//notification Route
+router.post('/createNotification', notification.createNotification);
+router.post('/getNotification', notification.getNotification);
+router.post('/deleteNotification', notification.deletenotification);
+
+//Benifits Route
+router.post('/createBenefits', benefits.createBenefits);
+router.post('/getBenefits', benefits.getBenefits);
+router.post('/deleteBenefits', benefits.deleteBenefits);
+
 
 module.exports = router;
