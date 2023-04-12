@@ -33,6 +33,7 @@ module.exports = {
         email: user.email,
         id: user._id,
         fullName: user.fullName,
+        type: user.type,
       });
     })(req, res);
   },
