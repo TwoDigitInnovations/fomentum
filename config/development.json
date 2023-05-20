@@ -1,7 +1,7 @@
 {
     "database": {
      
-        "url": "mongodb+srv://fomentum:fom12345678@cluster0.nipxkzu.mongodb.net/?retryWrites=true&w=majority"
+        "url": "mongodb+srv://myevent:myevent12345678@cluster0.egogsn7.mongodb.net/?retryWrites=true&w=majority"
     },
     "jwt": {
         "secretOrKey": "PROD_SECRET",

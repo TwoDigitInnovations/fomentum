@@ -5,12 +5,12 @@ const passport = require("passport");
 const jwtService = require("./../services/jwtService");
 const mailNotification = require("./../services/mailNotification");
 const mongoose = require("mongoose");
-const Device = mongoose.model("Device");
+// const Device = mongoose.model("Device");
 const User = mongoose.model("User");
 const Verification = mongoose.model("Verification");
 const Notification = mongoose.model("Notification");
-const Identity = mongoose.model("Identity");
-const Client = mongoose.model("Client");
+// const Identity = mongoose.model("Identity");
+// const Client = mongoose.model("Client");
 
 module.exports = {
   // login controller
