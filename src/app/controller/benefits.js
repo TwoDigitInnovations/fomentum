@@ -1,24 +1,25 @@
 const mongoose = require("mongoose");
-const Notification = mongoose.model("Notification");
+const Benefits = mongoose.model("Benefits");
 
 module.exports = {
-  createNotification: async (req, res) => {
+  createBenefits: async (req, res) => {
     try {
       const usertype = req.body.userType;
-      const notification = req.body.notification;
-      // Create blogs in db
+      const companyName = req.body.companyName;
+      const discount = req.body.discount;
+      const description = req.body.description;
 
-      const notify = new Notification({
+      const benefitObj = new Benefits({
         userType: usertype,
-        notification: notification,
-
-        // posteddate: new Date()
+        companyName: companyName,
+        discount: discount,
+        description: description,
       });
-      const noti = await notify.save();
+      const benf = await benefitObj.save();
       return res.status(201).json({
         success: true,
         message: "Data Saved successfully!",
-        data: noti,
+        data: benf,
       });
     } catch (e) {
       return res.status(500).json({
@@ -28,25 +29,25 @@ module.exports = {
     }
   },
 
-  getNotification: async (req, res) => {
+  getBenefits: async (req, res) => {
     try {
       if (req && req.body && req.body.role == "ADMIN") {
         //How this line is working need to ask from chetan
-        const notifications = await Notification.find({});
+        const benefits = await Benefits.find({});
 
         res.status(200).json({
           success: true,
-          message: "Fetched all notification successfully",
-          notificationList: notifications,
+          message: "Fetched all Benefits successfully",
+          notificationList: benefits,
         });
       } else {
-        const notifications = await Notification.find({
+        const benefits = await Benefits.find({
           $or: [{ userType: "All" }, { userType: req.body.userType }],
         });
         res.status(200).json({
           success: true,
-          message: "Fetched all notification successfully",
-          notificationList: notifications,
+          message: "Fetched all Benefits successfully",
+          notificationList: benefits,
         });
       }
     } catch (e) {
@@ -57,7 +58,7 @@ module.exports = {
     }
   },
 
-  deletenotification: async (req, res) => {
+  deleteBenefits: async (req, res) => {
     try {
       // if (req) {
       //     if (req.body.notificationId) {
@@ -74,10 +75,10 @@ module.exports = {
       //         })
       //     }
       // } else {
-      await Notification.deleteMany({});
+      await Benefits.deleteMany({});
       res.status(200).json({
         success: true,
-        message: "Notification Deleted Successfuly!!",
+        message: "Benefits Deleted Successfuly!!",
       });
       // }
     } catch (e) {
